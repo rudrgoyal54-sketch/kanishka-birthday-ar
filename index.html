@@ -62,9 +62,17 @@
 <script>
   document.getElementById("startBtn").onclick = function () {
     document.getElementById("startBtn").style.display = "none";
-    document.getElementById("scene").style.display = "block";
+
+    const scene = document.getElementById("scene");
+    scene.style.display = "block";
+
+    // Force AR.js to reinitialize camera
+    setTimeout(() => {
+      scene.emit('reload');
+    }, 200);
   };
 </script>
+
 
 </body>
 </html>
